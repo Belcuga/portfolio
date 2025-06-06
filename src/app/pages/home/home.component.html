@@ -1,0 +1,81 @@
+<main class="home-container">
+  <section class="profile-section">
+    <div class="profile-content">
+      <div class="profile-text" [@slideFromLeft]="animationState">
+        <h1>Milan Djordjevic</h1>
+        <h2>Frontend Developer</h2>
+        <p class="bio">
+          I'm a passionate frontend developer with a keen eye for creating beautiful and functional web experiences. 
+          I specialize in building modern web applications using cutting-edge technologies.
+        </p>
+        <div class="contact-info">
+          <a href="mailto:djordjevic.milan13@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i>
+            djordjevic.milan13&#64;gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/milandjordjevic00/" target="_blank" class="contact-link">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+          <a href="https://github.com/Belcuga" target="_blank" class="contact-link">
+            <i class="fab fa-github"></i>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="profile-image" [@slideFromRight]="animationState">
+        <img src="assets\images\profile-photo.jpg" alt="Milan's profile picture">
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-stack-section" [@slideFromBottom]="animationState">
+    <h4>TECH STACK</h4>
+    <div class="tech-icons">
+      <div class="tech-icon">
+        <img src="assets/images/angular-icon.svg" alt="Angular">
+        <span>Angular</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/typescript-icon.svg" alt="Typescript">
+        <span>TypeScript</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/javascript-icon.svg" alt="Javascript">
+        <span>JavaScript</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/html-icon.svg" alt="HTML">
+        <span>HTML</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/css-icon.svg" alt="CSS">
+        <span>CSS</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/tailwind-icon.svg" alt="Tailwind">
+        <span>Tailwind CSS</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/react-icon.svg" alt="React">
+        <span>React</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/nextjs-icon.svg" alt="Next.js">
+        <span>Next.js</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/graphql-icon.svg" alt="GraphQL">
+        <span>GraphQL</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/git-icon.svg" alt="Git">
+        <span>Git</span>
+      </div>
+      <div class="tech-icon">
+        <img src="assets/images/npm-icon.svg" alt="NPM">
+        <span>NPM</span>
+      </div>
+    </div>
+  </section>
+</main>

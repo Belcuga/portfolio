@@ -1,0 +1,21 @@
+<div class="splash-screen" @fadeIn>
+  <div class="splash-content" [@staggerFadeIn]="showContent ? 'in' : 'out'">
+    <div class="profile-image" *ngIf="showContent">
+      <img [src]="'assets/images/profile-photo.jpg'" alt="Milan's profile photo">
+    </div>
+    <h1 *ngIf="showContent">Hi,</h1>
+    <h2 *ngIf="showContent">My name is <span class="name">Milan</span></h2>
+    <h3 *ngIf="showContent">Frontend Developer</h3>
+    
+    
+
+    <button 
+      *ngIf="showContent"
+      class="enter-button"
+      (click)="onEnterClick()"
+      @fadeIn
+    >
+      Enter
+    </button>
+  </div>
+</div>
