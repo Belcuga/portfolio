@@ -1,1 +1,138 @@
+.header-wrapper {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background-color: #0e0e0e;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #7c8dfb;
+    font-family: 'Georgia', serif;
+    text-decoration: none;
+  }
+
+  .nav-links,
+  .cta-button {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #7c8dfb;
+      }
+    }
+  }
+
+  .cta-button a {
+    padding: 0.5rem 1rem;
+    border: 1px solid #7c8dfb;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: #7c8dfb;
+      color: black;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 150px;
+    background-color: #121212;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    z-index: 1100;
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+
+      &:hover {
+        color: #7c8dfb;
+      }
+    }
+
+    .close-btn {
+      font-size: 2rem;
+      color: #aaa;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+
+    &.open {
+      left: 0;
+    }
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+  }
+
+  // Responsive visibility
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  .active-link {
+    color: #7c8dfb;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-only {
+      display: flex;
+    }
+  }
+}

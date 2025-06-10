@@ -1,0 +1,79 @@
+.experience-page {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+
+    h1 {
+        font-size: 2.5rem;
+        font-family: 'Georgia', serif;
+        margin-bottom: 2.5rem;
+        color: #ffffff;
+    }
+
+    .experience-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .experience-card {
+        background-color: #1a1a1a;
+        padding: 1.5rem 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+
+            h2 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            .period {
+                font-size: 0.95rem;
+                color: #aaa;
+            }
+        }
+
+        .highlights {
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            list-style-type: disc;
+            color: #bbb;
+
+            li {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 0.5rem;
+
+                &::marker {
+                    color: #7c8dfb;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ccc;
+            margin-bottom: 0.6rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #ddd;
+        }
+    }
+}

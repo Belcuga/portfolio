@@ -1,0 +1,31 @@
+<div class="contact-page">
+  <h1>Contact</h1>
+  <p class="subtitle">
+    I'm currently open to new opportunities. Feel free to reach out if you'd like to discuss a project or just want to
+    connect.
+  </p>
+
+  <form (ngSubmit)="sendMessage()" class="contact-form">
+    <div class="row">
+      <input type="text" placeholder="Name" name="name" required />
+      <input type="email" placeholder="Email" name="email" required />
+    </div>
+    <textarea placeholder="Message" name="message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="contact-info">
+    <a href="mailto:djordjevic.milan13@gmail.com" class="contact-link">
+      <i class="fas fa-envelope"></i>
+      djordjevic.milan13&#64;gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/milandjordjevic00/" target="_blank" class="contact-link">
+      <i class="fab fa-linkedin"></i>
+      LinkedIn
+    </a>
+    <a href="https://github.com/Belcuga" target="_blank" class="contact-link">
+      <i class="fab fa-github"></i>
+      GitHub
+    </a>
+  </div>
+</div>

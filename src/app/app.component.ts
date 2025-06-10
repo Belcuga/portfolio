@@ -2,20 +2,13 @@ import { Component } from '@angular/core';
 import { SplashScreenComponent } from './pages/home/splash-screen/splash-screen.component';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, SplashScreenComponent, RouterOutlet],
-  template: `
-    <app-splash-screen 
-      *ngIf="showSplash" 
-      (animationComplete)="onSplashComplete()">
-    </app-splash-screen>
-    <div *ngIf="!showSplash" class="main-content">
-      <router-outlet></router-outlet>
-    </div>
-  `,
+  imports: [CommonModule, SplashScreenComponent, RouterOutlet, HeaderComponent],
+  templateUrl: './app.component.html',
   styles: [`
     :host {
       display: block;

@@ -1,0 +1,14 @@
+<div class="projects-page">
+  <h1>Projects</h1>
+
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of projects">
+      <img [src]="project.image" [alt]="project.title" />
+      <div class="project-content">
+        <h2>{{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+        <a [href]="project.link" target="_blank" rel="noopener">View Project</a>
+      </div>
+    </div>
+  </div>
+</div>
