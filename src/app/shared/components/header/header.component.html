@@ -1,34 +1,39 @@
 <div class="header-wrapper">
   <div class="container">
+    <div class="menu" (click)="isSidebarOpen = true" *ngIf="isMobile">
+      <img src="assets/images/menu-icon.svg">
+      <div class="logo">
+        <a href="/">Milan Djordjevic</a>
+      </div>
+    </div>
     <div class="logo" *ngIf="!isMobile">
       <a href="/">Milan Djordjevic</a>
     </div>
-    <div class="logo" *ngIf="isMobile">
-      <p (click)="isSidebarOpen = true">Open</p>
-    </div>
+
 
     <!-- Desktop Nav -->
-    <ng-container *ngIf="!isMobile">
-      <div class="nav-links">
-        <a routerLink="/" routerLinkActive="/">Home</a>
-        <a routerLink="/projects"  routerLinkActive="/projects">Projects</a>
-        <a routerLink="/experience"  routerLinkActive="/projects">Experience</a>
-        <a routerLink="/contact" routerLinkActive="/contact">Contact</a>
-      </div>
+    <div class="nav-links" *ngIf="!isMobile">
+      <a routerLink="/" routerLinkActive="/">Home</a>
+      <a routerLink="/projects" routerLinkActive="/projects">Projects</a>
+      <a routerLink="/experience" routerLinkActive="/projects">Experience</a>
+      <a routerLink="/contact" routerLinkActive="/contact">Contact</a>
+    </div>
+    <div class="cta-button" *ngIf="!isMobile">
+      <a (click)="downloadResume()">Resume <img src="/assets/images/download-icon.svg"></a>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" [class.open]="isSidebarOpen" [@openClose]="isSidebarOpen ? 'open' : 'closed'">
+      <div class="close-btn" (click)="closeSidebar()">×</div>
+      <a routerLink="/" (click)="closeSidebar()">Home</a>
+      <a routerLink="/projects" (click)="closeSidebar()">Projects</a>
+      <a routerLink="/experience" (click)="closeSidebar()">Experience</a>
+      <a routerLink="/contact" (click)="closeSidebar()">Contact</a>
       <div class="cta-button">
-        <a routerLink="#projects">Resume</a>
+        <a (click)="downloadResume()">Resume <img src="/assets/images/download-icon.svg"></a>
       </div>
-    </ng-container>
+    </div>
 
-  <!-- Sidebar -->
-  <div class="sidebar" [class.open]="isSidebarOpen" *ngIf="isSidebarOpen">
-    <div class="close-btn" (click)="closeSidebar()">×</div>
-    <a routerLink="#about" (click)="closeSidebar()">About</a>
-    <a routerLink="#projects" (click)="closeSidebar()">Projects</a>
-    <a routerLink="#techstack" (click)="closeSidebar()">Tech Stack</a>
-    <a routerLink="#contact" (click)="closeSidebar()">Contact</a>
+    <!-- Backdrop -->
+    <!-- <div class="backdrop" *ngIf="isSidebarOpen && isMobile" (click)="closeSidebar()"></div> -->
   </div>
-
-  <!-- Backdrop -->
-  <!-- <div class="backdrop" *ngIf="isSidebarOpen && isMobile" (click)="closeSidebar()"></div> -->
-</div>

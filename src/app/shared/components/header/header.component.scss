@@ -24,10 +24,25 @@
     text-decoration: none;
   }
 
+  .menu {
+    display: flex;
+    flex-direction: row;
+
+    .logo{
+      margin-left: 40px;
+    }
+  }
+
+  .menu img {
+    width: 30px;
+    height: 30px;
+  }
+
   .nav-links,
   .cta-button {
     display: flex;
     gap: 1.5rem;
+    cursor: pointer;
 
     a {
       text-decoration: none;
@@ -38,6 +53,12 @@
       &:hover {
         color: #7c8dfb;
       }
+    }
+
+    img {
+      display: inline-block;
+      height: 16px;
+      width: 16px;
     }
   }
 
@@ -66,42 +87,6 @@
     }
   }
 
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    height: 100%;
-    width: 150px;
-    background-color: #121212;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transition: left 0.3s ease;
-    z-index: 1100;
-
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-
-      &:hover {
-        color: #7c8dfb;
-      }
-    }
-
-    .close-btn {
-      font-size: 2rem;
-      color: #aaa;
-      cursor: pointer;
-      align-self: flex-end;
-    }
-
-    &.open {
-      left: 0;
-    }
-  }
-
   .backdrop {
     position: fixed;
     top: 0;
@@ -127,6 +112,11 @@
   }
 
   @media (max-width: 768px) {
+
+    .header-wrapper {
+      height: 0;
+    }
+
     .desktop-only {
       display: none;
     }
@@ -134,5 +124,41 @@
     .mobile-only {
       display: flex;
     }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 150px;
+  background-color: #121212;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: left 0.3s ease;
+  z-index: 1100;
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: #7c8dfb;
+    }
+  }
+
+  .close-btn {
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  &.open {
+    left: 0;
   }
 }

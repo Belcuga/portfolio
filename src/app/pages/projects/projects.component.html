@@ -1,14 +1,36 @@
 <div class="projects-page">
-  <h1>Projects</h1>
+  <h1 [@slideFromTop]="animationState">Personal Projects</h1>
 
   <div class="projects-grid">
-    <div class="project-card" *ngFor="let project of projects">
+    <div class="project-card" *ngFor="let project of projects; let i = index" (click)="scrollTo(project.id)"
+      [@slideFromRight]="i % 2 === 1 ? animationState : ''" [@slideFromLeft]="i % 2 === 0 ? animationState : ''">
       <img [src]="project.image" [alt]="project.title" />
       <div class="project-content">
         <h2>{{ project.title }}</h2>
         <p>{{ project.description }}</p>
-        <a [href]="project.link" target="_blank" rel="noopener">View Project</a>
+        <div class="bottom-part">
+          <a [href]="project.link" target="_blank" rel="noopener" (click)="stopPropogation($event)">View Project</a>
+          <div class="tech-icons">
+            <div class="tech-icon" *ngFor="let icon of project.technologies">
+              <img [src]="'assets/images/' + icon" alt="CSS">
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+  <h1 [@slideFromBottom]="animationState">More About Projects</h1>
+  <div class="experience-list">
+    <div #experienceCard class="experience-card" *ngFor="let exp of projects; let j = index"
+      [@slideFromBottom]="experienceVisibleStates[j] ? 'visible' : 'hidden'" [id]="exp.id">
+      <div class="experience-header">
+        <h2>{{ exp.title }}</h2>
+      </div>
+      <p>{{ exp.description }}</p>
+
+      <ul class="highlights">
+        <li *ngFor="let point of exp.points">{{ point }}</li>
+      </ul>
     </div>
   </div>
 </div>

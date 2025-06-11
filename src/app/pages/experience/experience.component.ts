@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
@@ -5,7 +6,16 @@ import { Component } from '@angular/core';
   selector: 'app-experience',
   imports: [CommonModule],
   templateUrl: './experience.component.html',
-  styleUrl: './experience.component.scss'
+  styleUrl: './experience.component.scss',
+  animations: [
+    trigger('slideFromBottom', [
+      state('hidden', style({ transform: 'translateY(50%)', opacity: 0 })),
+      state('visible', style({ transform: 'translateX(0)', opacity: 1 })),
+      transition('hidden => visible', [
+        animate('800ms ease-out')
+      ])
+    ]),
+  ]
 })
 export class ExperienceComponent {
   experiences = [
@@ -27,4 +37,12 @@ export class ExperienceComponent {
       ]
     },
   ];
+
+  animationState = 'hidden';
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.animationState = 'visible';
+    }, 100);
+  }
 }
