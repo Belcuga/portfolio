@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --configuration production",
-    "vercel-build": "ng build --configuration production",
+    "build": "ng build --configuration production --base-href /",
+    "vercel-build": "ng build --configuration production --base-href /",
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
