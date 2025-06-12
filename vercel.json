@@ -1,20 +1,8 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/milan-portfolio/browser"
-      }
-    }
-  ],
   "routes": [
     {
       "src": "/(.*\\.(js|css|png|jpg|ico|svg|json|webmanifest|txt|woff2|woff))",
-      "headers": {
-        "cache-control": "public,max-age=31536000,immutable"
-      },
       "continue": true
     },
     {
