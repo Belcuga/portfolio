@@ -5,7 +5,7 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist/milan-portfolio/browser"
+        "distDir": "dist/milan-portfolio"
       }
     }
   ],
