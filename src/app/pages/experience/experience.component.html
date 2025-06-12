@@ -15,6 +15,11 @@
           {{ point }}
         </li>
       </ul>
+      <div class="tech-icons">
+        <div class="tech-icon" *ngFor="let icon of exp.technologies">
+          <img [src]="'assets/images/' + icon" alt="CSS">
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -45,7 +45,7 @@ export class ProjectsComponent {
       id: 'portfolio-site',
       title: 'Portfolio Website',
       description: 'My personal portfolio website, built with Angular and TypeScript. Showcases my skills, projects, and experience.',
-      image: '',
+      image: 'assets/images/portfolio.png',
       link: '',
       technologies: ['angular-icon.svg', 'typescript-icon.svg', 'html-icon.svg', 'css-icon.svg'],
       points: [

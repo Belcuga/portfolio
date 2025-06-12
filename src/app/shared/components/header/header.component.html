@@ -25,10 +25,10 @@
     <!-- Sidebar -->
     <div class="sidebar" [class.open]="isSidebarOpen" [@openClose]="isSidebarOpen ? 'open' : 'closed'">
       <div class="close-btn" (click)="closeSidebar()">×</div>
-      <a routerLink="/" (click)="closeSidebar()">Home</a>
-      <a routerLink="/projects" (click)="closeSidebar()">Projects</a>
-      <a routerLink="/experience" (click)="closeSidebar()">Experience</a>
-      <a routerLink="/contact" (click)="closeSidebar()">Contact</a>
+      <a routerLink="/" routerLinkActive="/" (click)="closeSidebar()">Home</a>
+      <a routerLink="/projects" routerLinkActive="/projects" (click)="closeSidebar()">Projects</a>
+      <a routerLink="/experience" routerLinkActive="/experience" (click)="closeSidebar()">Experience</a>
+      <a routerLink="/contact" routerLinkActive="/contact" (click)="closeSidebar()">Contact</a>
       <div class="cta-button">
         <a (click)="downloadResume()">Resume <img src="/assets/images/download-icon.svg"></a>
       </div>

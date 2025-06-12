@@ -34,7 +34,15 @@ export class ExperienceComponent {
         'Participated in Agile processes (Jira, ActiveCollab), code reviews, and sprint planning',
         'Led cross-browser testing and accessibility improvements',
         'Reduced app load time by 30% through code splitting and lazy loading'
-      ]
+      ],
+      technologies: [
+        'angular-icon.svg', 
+        'typescript-icon.svg', 
+        'javascript-icon.svg', 
+        'html-icon.svg', 
+        'css-icon.svg', 
+        'git-icon.svg', 
+        'npm-icon.svg',]
     },
   ];
 
