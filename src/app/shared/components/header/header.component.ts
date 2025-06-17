@@ -28,6 +28,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         animate('300ms ease-in')
       ]),
     ]),
+    trigger('backdropFade', [
+      state('hidden', style({ opacity: 0, display: 'none' })),
+      state('visible', style({ opacity: 1, display: 'flex' })),
+      transition('hidden => visible', [animate('200ms ease-in')]),
+      transition('visible => hidden', [animate('200ms ease-out')])
+    ])
   ],
 })
 export class HeaderComponent {
