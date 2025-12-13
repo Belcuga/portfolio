@@ -1,0 +1,189 @@
+<div class="project-detail-layout">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a routerLink="/projects" class="breadcrumb-link" appRevealOnScroll="fadeIn">← Back to Projects</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title" appRevealOnScroll="fadeUp">{{ hero.title }}</h1>
+        <p class="hero-tagline" appRevealOnScroll="fadeUp" [delay]="100">{{ hero.tagline }}</p>
+        
+        <div class="meta-badges" *ngIf="hero.metaBadges && hero.metaBadges.length > 0">
+          <span class="meta-badge" *ngFor="let badge of hero.metaBadges; let i = index" appRevealOnScroll="scaleIn" [staggerIndex]="i" [duration]="400" [delay]="200">{{ badge }}</span>
+        </div>
+
+        <p class="hero-one-liner" appRevealOnScroll="fadeUp" [delay]="300">{{ hero.oneLiner }}</p>
+
+        <div class="hero-cta" appRevealOnScroll="fadeUp" [delay]="400">
+          <a 
+            *ngIf="hero.ctaButtons.primary" 
+            [href]="hero.ctaButtons.primary.url" 
+            [target]="hero.ctaButtons.primary.external ? '_blank' : '_self'"
+            [rel]="hero.ctaButtons.primary.external ? 'noopener noreferrer' : ''"
+            class="cta-button cta-primary">
+            {{ hero.ctaButtons.primary.label }}
+          </a>
+          <a 
+            *ngIf="hero.ctaButtons.secondary" 
+            [href]="hero.ctaButtons.secondary.url" 
+            [target]="hero.ctaButtons.secondary.external ? '_blank' : '_self'"
+            [rel]="hero.ctaButtons.secondary.external ? 'noopener noreferrer' : ''"
+            class="cta-button cta-secondary">
+            {{ hero.ctaButtons.secondary.label }}
+          </a>
+          <a 
+            *ngIf="hero.ctaButtons.tertiary" 
+            [routerLink]="hero.ctaButtons.tertiary.route"
+            class="cta-link">
+            {{ hero.ctaButtons.tertiary.label }}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" *ngIf="hero.heroImage" appRevealOnScroll="slideRight" [delay]="200">
+        <div class="hero-image-card">
+          <div class="image-placeholder">
+            <img [src]="hero.heroImage.src" [alt]="hero.heroImage.alt" *ngIf="hero.heroImage.src && hero.heroImage.src !== 'placeholder'">
+            <div class="placeholder-content" *ngIf="!hero.heroImage.src || hero.heroImage.src === 'placeholder'">
+              <span class="placeholder-icon">📸</span>
+              <span class="placeholder-text">Screenshot Placeholder</span>
+            </div>
+          </div>
+          <div class="tech-labels" *ngIf="hero.heroImage.techLabels && hero.heroImage.techLabels.length > 0" appRevealOnScroll="fadeUp" [delay]="300">
+            <span class="tech-label" *ngFor="let label of hero.heroImage.techLabels; let i = index">{{ label }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="content-section" *ngIf="overview">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">Overview</h2>
+    <div class="section-content overview-content" [innerHTML]="overview" appRevealOnScroll="fadeUp" [delay]="100"></div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="content-section" *ngIf="features && features.length > 0">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">Gameplay & Features</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features; let i = index" appRevealOnScroll="fadeUp" [staggerIndex]="i">
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description" *ngIf="feature.description">{{ feature.description }}</p>
+      </div>
+    </div>
+    
+    <div class="additional-features" *ngIf="additionalFeatures && additionalFeatures.length > 0" appRevealOnScroll="fadeUp">
+      <h3 class="subsection-heading">Additional Features</h3>
+      <ul class="features-list">
+        <li *ngFor="let feature of additionalFeatures; let i = index" [innerHTML]="feature" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="100"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Technical Overview Section -->
+  <section class="content-section" *ngIf="techStack">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">Technical Overview</h2>
+    <div class="tech-overview">
+      <div class="tech-column" appRevealOnScroll="slideLeft" [delay]="100">
+        <h3 class="tech-column-title">Frontend</h3>
+        <ul class="tech-list">
+          <li *ngFor="let tech of techStack.frontend; let i = index" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="200">{{ tech }}</li>
+        </ul>
+      </div>
+      <div class="tech-column" appRevealOnScroll="slideRight" [delay]="100">
+        <h3 class="tech-column-title">Backend</h3>
+        <ul class="tech-list">
+          <li *ngFor="let tech of techStack.backend; let i = index" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="200">{{ tech }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tech-highlight" *ngIf="techStack.highlight" appRevealOnScroll="fadeUp" [delay]="300">
+      <p>{{ techStack.highlight }}</p>
+    </div>
+  </section>
+
+  <!-- Role & Responsibilities Section -->
+  <section class="content-section" *ngIf="role || roleBullets">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">My Role</h2>
+    <div class="section-content" *ngIf="role" [innerHTML]="role" appRevealOnScroll="fadeUp" [delay]="100"></div>
+    <ul class="role-bullets" *ngIf="roleBullets && roleBullets.length > 0">
+      <li *ngFor="let bullet of roleBullets; let i = index" [innerHTML]="bullet" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="100"></li>
+    </ul>
+    <div class="collaboration-note" *ngIf="collaborationNote" appRevealOnScroll="fadeUp" [delay]="200">
+      <p>{{ collaborationNote }}</p>
+    </div>
+  </section>
+
+  <!-- Challenges & Learnings Section -->
+  <section class="content-section" *ngIf="challenges && challenges.length > 0">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">Challenges & Learnings</h2>
+    <ul class="challenges-list">
+      <li *ngFor="let challenge of challenges; let i = index" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="100">{{ challenge }}</li>
+    </ul>
+  </section>
+
+  <!-- Screenshots / Gallery Section -->
+  <section class="content-section" *ngIf="screenshots && screenshots.length > 0">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item" *ngFor="let screenshot of screenshots; let i = index" appRevealOnScroll="scaleIn" [staggerIndex]="i">
+        <div class="screenshot-wrapper">
+          <img [src]="screenshot.src" [alt]="screenshot.alt" *ngIf="screenshot.src && screenshot.src !== 'placeholder'">
+          <div class="screenshot-placeholder" *ngIf="!screenshot.src || screenshot.src === 'placeholder'">
+            <span class="placeholder-icon">📸</span>
+          </div>
+        </div>
+        <p class="screenshot-caption">{{ screenshot.caption }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section class="content-section" *ngIf="roadmap && roadmap.length > 0">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">What's Next</h2>
+    <div class="roadmap-list">
+      <div class="roadmap-item" *ngFor="let item of roadmap; let i = index" [class.completed]="item.completed" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="100">
+        <span class="roadmap-checkbox">{{ item.completed ? '✓' : '○' }}</span>
+        <span class="roadmap-text">{{ item.text }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="content-section final-cta" *ngIf="finalCta">
+    <p class="cta-text" appRevealOnScroll="fadeUp">{{ finalCta.text }}</p>
+    <div class="cta-buttons" appRevealOnScroll="fadeUp" [delay]="100">
+      <ng-container *ngFor="let button of finalCta.buttons; let i = index">
+        <a 
+          *ngIf="button.url"
+          [href]="button.url" 
+          [target]="button.external ? '_blank' : '_self'"
+          [rel]="button.external ? 'noopener noreferrer' : ''"
+          class="cta-button"
+          [class.cta-primary]="button === finalCta.buttons[0]"
+          [class.cta-secondary]="button !== finalCta.buttons[0]"
+          appRevealOnScroll="scaleIn"
+          [staggerIndex]="i"
+          [delay]="200">
+          {{ button.label }}
+        </a>
+        <a 
+          *ngIf="button.route"
+          [routerLink]="button.route"
+          class="cta-button"
+          [class.cta-primary]="button === finalCta.buttons[0]"
+          [class.cta-secondary]="button !== finalCta.buttons[0]"
+          appRevealOnScroll="scaleIn"
+          [staggerIndex]="i"
+          [delay]="200">
+          {{ button.label }}
+        </a>
+      </ng-container>
+    </div>
+  </section>
+</div>
+

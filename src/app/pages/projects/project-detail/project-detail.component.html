@@ -1,0 +1,46 @@
+<div class="project-detail-page" *ngIf="project">
+  <button class="back-button" (click)="goBack()">← Back to Projects</button>
+  
+  <div class="project-header">
+    <div class="project-icon">{{ project.icon }}</div>
+    <h1>{{ project.title }}</h1>
+    <p class="tagline">{{ project.tagline }}</p>
+  </div>
+
+  <div class="project-content">
+    <div class="project-images" *ngIf="project.images && project.images.length > 0">
+      <img *ngFor="let image of project.images" [src]="image" [alt]="project.title" class="project-image">
+    </div>
+
+    <div class="project-info">
+      <div class="description-section">
+        <h2>About</h2>
+        <p class="full-description">{{ project.fullDescription }}</p>
+      </div>
+
+      <div class="tech-section">
+        <h2>Technologies</h2>
+        <div class="tech-chips">
+          <span class="tech-chip" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+      </div>
+
+      <div class="links-section" *ngIf="project.liveLink || project.codeLink">
+        <h2>Links</h2>
+        <div class="project-links">
+          <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" rel="noopener" class="link-button live">
+            🌐 Live Site
+          </a>
+          <a *ngIf="project.codeLink" [href]="project.codeLink" target="_blank" rel="noopener" class="link-button code">
+            💻 View Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

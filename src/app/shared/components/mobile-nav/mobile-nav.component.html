@@ -1,0 +1,46 @@
+<nav class="mobile-nav" *ngIf="isMobile">
+  <button 
+    class="mobile-nav__item" 
+    [class.mobile-nav__item--active]="activeRoute === 'home'"
+    (click)="navigateTo('home')"
+    aria-label="Home">
+    <span class="mobile-nav__icon">
+      <i class="fas fa-home"></i>
+    </span>
+    <span class="mobile-nav__label">Home</span>
+  </button>
+
+  <button 
+    class="mobile-nav__item" 
+    [class.mobile-nav__item--active]="activeRoute === 'projects'"
+    (click)="navigateTo('projects')"
+    aria-label="Projects">
+    <span class="mobile-nav__icon">
+      <i class="fas fa-folder"></i>
+    </span>
+    <span class="mobile-nav__label">Projects</span>
+  </button>
+
+  <button 
+    class="mobile-nav__item" 
+    [class.mobile-nav__item--active]="activeRoute === 'experience'"
+    (click)="navigateTo('experience')"
+    aria-label="Experience">
+    <span class="mobile-nav__icon">
+      <i class="fas fa-briefcase"></i>
+    </span>
+    <span class="mobile-nav__label">Experience</span>
+  </button>
+
+  <button 
+    class="mobile-nav__item" 
+    [class.mobile-nav__item--active]="activeRoute === 'contact'"
+    (click)="navigateTo('contact')"
+    aria-label="Contact">
+    <span class="mobile-nav__icon">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="mobile-nav__label">Contact</span>
+  </button>
+</nav>
+

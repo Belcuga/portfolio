@@ -1,0 +1,139 @@
+<section class="tech-stack" id="tech-stack">
+  <div class="tech-stack__inner">
+    <header class="tech-stack__header">
+      <h2 class="tech-stack__title" appRevealOnScroll="fadeUp">Tech Stack</h2>
+      <p class="tech-stack__subtitle" appRevealOnScroll="fadeUp" [delay]="100">
+        Tools I use to build fast, modern web applications.
+      </p>
+    </header>
+
+    <div class="tech-stack__groups">
+      <!-- Core Frontend -->
+      <article class="tech-group" appRevealOnScroll="fadeUp" [delay]="200">
+        <div class="tech-group__head">
+          <h3 class="tech-group__title">Core Frontend</h3>
+          <p class="tech-group__description">
+            My primary focus: building rich, interactive UIs in Angular.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div
+            class="tech-item"
+            *ngFor="let tech of coreFrontend; let i = index"
+            appRevealOnScroll="fadeUp"
+            [staggerIndex]="i"
+            [delay]="300"
+          >
+            <div class="tech-item__icon-wrapper">
+              <img
+                class="tech-item__icon"
+                [src]="tech.icon"
+                [alt]="tech.name"
+                loading="lazy"
+              />
+            </div>
+            <span class="tech-item__name">{{ tech.name }}</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Backend & Data -->
+      <article class="tech-group" appRevealOnScroll="fadeUp" [delay]="400">
+        <div class="tech-group__head">
+          <h3 class="tech-group__title">Backend & Data</h3>
+          <p class="tech-group__description">
+            Light backend work and data layer for full-stack projects.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div
+            class="tech-item"
+            *ngFor="let tech of backendData; let i = index"
+            appRevealOnScroll="fadeUp"
+            [staggerIndex]="i"
+            [delay]="500"
+          >
+            <div class="tech-item__icon-wrapper">
+              <img
+                class="tech-item__icon"
+                [src]="tech.icon"
+                [alt]="tech.name"
+                loading="lazy"
+              />
+            </div>
+            <span class="tech-item__name">{{ tech.name }}</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tools & Platforms -->
+      <article class="tech-group" appRevealOnScroll="fadeUp" [delay]="600">
+        <div class="tech-group__head">
+          <h3 class="tech-group__title">Tools & Platforms</h3>
+          <p class="tech-group__description">
+            Everyday tools I use to ship, collaborate, and maintain.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div
+            class="tech-item"
+            *ngFor="let tech of toolsPlatforms; let i = index"
+            appRevealOnScroll="fadeUp"
+            [staggerIndex]="i"
+            [delay]="700"
+          >
+            <div class="tech-item__icon-wrapper">
+              <img
+                class="tech-item__icon"
+                [src]="tech.icon"
+                [alt]="tech.name"
+                loading="lazy"
+              />
+            </div>
+            <span class="tech-item__name">{{ tech.name }}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tech-stack__extra" appRevealOnScroll="fadeUp" [delay]="800">
+      <span class="tech-stack__extra-label">Also worked with</span>
+      <div class="tech-stack__extra-items">
+        <div
+          class="tech-item tech-item--small"
+          *ngFor="let tech of alsoWorkedWith; let i = index"
+          appRevealOnScroll="fadeUp"
+          [staggerIndex]="i"
+        >
+          <div class="tech-item__icon-wrapper">
+            <img
+              class="tech-item__icon"
+              [src]="tech.icon"
+              [alt]="tech.name"
+              loading="lazy"
+            />
+          </div>
+          <span class="tech-item__name">{{ tech.name }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-stack__cta" appRevealOnScroll="fadeUp" [delay]="900">
+      <a routerLink="/projects" class="btn btn-primary">
+        View Featured Projects
+      </a>
+
+      <a
+        class="btn btn-secondary"
+        href="https://github.com/Belcuga"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View GitHub
+      </a>
+    </div>
+  </div>
+</section>

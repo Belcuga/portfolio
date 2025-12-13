@@ -1,23 +1,53 @@
 <div class="experience-page">
-  <h1>Experience</h1>
+  <div class="hero-section">
+    <h1 appRevealOnScroll="fadeUp">Experience</h1>
+    <p class="subtitle" appRevealOnScroll="fadeUp" [delay]="100">Where I gained real product experience delivering frontend apps at scale.</p>
+  </div>
 
-  <div class="experience-list" [@slideFromBottom]="animationState">
-    <div class="experience-card" *ngFor="let exp of experiences">
-      <div class="experience-header">
-        <h2>{{ exp.title }}</h2>
-        <span class="period">{{ exp.period }}</span>
-      </div>
-      <h3>{{ exp.company }}</h3>
-      <p>{{ exp.description }}</p>
+  <div class="timeline-container">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-content">
+      <div class="timeline-item" *ngFor="let exp of experiences; let i = index">
+        <div class="timeline-node" [class.left]="i % 2 === 0" [class.right]="i % 2 === 1">
+          <div class="node-dot"></div>
+        </div>
+        
+        <div class="timeline-card" 
+             [class.left-card]="i % 2 === 0" 
+             [class.right-card]="i % 2 === 1"
+             [appRevealOnScroll]="i % 2 === 0 ? 'slideLeft' : 'slideRight'"
+             [staggerIndex]="i">
+          
+          <div class="card-header">
+            <div class="role-info">
+              <h2>{{ exp.role }}</h2>
+              <h3 class="company">{{ exp.company }}</h3>
+            </div>
+            <div class="meta-info">
+              <div class="date">{{ exp.dates }}</div>
+              <div class="location">{{ exp.location }}</div>
+              <div class="team-size" *ngIf="exp.teamSize">{{ exp.teamSize }}</div>
+            </div>
+          </div>
 
-      <ul class="highlights">
-        <li *ngFor="let point of exp.points">
-          {{ point }}
-        </li>
-      </ul>
-      <div class="tech-icons">
-        <div class="tech-icon" *ngFor="let icon of exp.technologies">
-          <img [src]="'assets/images/' + icon" alt="CSS">
+          <p class="summary">{{ exp.summary }}</p>
+
+          <div class="tech-badges" *ngIf="exp.technologies && exp.technologies.length > 0">
+            <span class="tech-badge" *ngFor="let tech of exp.technologies">{{ tech }}</span>
+          </div>
+
+          <ul class="highlights">
+            <li *ngFor="let point of exp.points" [innerHTML]="formatPoint(point)"></li>
+          </ul>
+
+          <div class="highlight-banner" *ngIf="exp.highlights && exp.highlights.length > 0">
+            <div class="banner-title" *ngIf="exp.highlights.length > 1">Proud achievements:</div>
+            <ul class="banner-list" *ngIf="exp.highlights.length > 1">
+              <li *ngFor="let highlight of exp.highlights">{{ highlight }}</li>
+            </ul>
+            <div class="banner-text" *ngIf="exp.highlights.length === 1">{{ exp.highlights[0] }}</div>
+          </div>
         </div>
       </div>
     </div>

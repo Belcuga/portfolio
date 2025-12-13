@@ -1,38 +1,30 @@
-<div class="header-wrapper">
-  <div class="container">
-    <div class="menu" (click)="isSidebarOpen = true" *ngIf="isMobile">
-      <img src="assets/images/menu-icon.svg">
-      <div class="logo">
-        <a href="/">Milan Djordjevic</a>
-      </div>
+<header class="site-header">
+  <div class="site-header__inner">
+    <!-- Brand / Logo -->
+    <div class="site-header__brand">
+      <a routerLink="/">Milan Djordjevic</a>
     </div>
-    <div class="logo" *ngIf="!isMobile">
-      <a href="/">Milan Djordjevic</a>
-    </div>
-
 
     <!-- Desktop Nav -->
-    <div class="nav-links" *ngIf="!isMobile">
+    <nav class="site-header__nav site-header__nav--desktop">
       <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link">Home</a>
       <a routerLink="/projects" routerLinkActive="active-link">Projects</a>
       <a routerLink="/experience" routerLinkActive="active-link">Experience</a>
       <a routerLink="/contact" routerLinkActive="active-link">Contact</a>
-    </div>
-    <div class="cta-button" *ngIf="!isMobile">
-      <a (click)="downloadResume()">Resume <img src="/assets/images/download-icon.svg"></a>
-    </div>
+    </nav>
 
-    <div class="backdrop" [class.visible]="isSidebarOpen" [@backdropFade]="isSidebarOpen ? 'visible' : 'hidden'"   (click)="closeSidebar()">
-      <div class="sidebar open" [@openClose]="isSidebarOpen ? 'open' : 'closed'" (click)="$event.stopPropagation()">
-        <div class="close-btn" (click)="closeSidebar()">×</div>
-        <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link"
-          (click)="closeSidebar()">Home</a>
-        <a routerLink="/projects" routerLinkActive="active-link" (click)="closeSidebar()">Projects</a>
-        <a routerLink="/experience" routerLinkActive="active-link" (click)="closeSidebar()">Experience</a>
-        <a routerLink="/contact" routerLinkActive="active-link" (click)="closeSidebar()">Contact</a>
-        <div class="cta-button">
-          <a (click)="downloadResume()">Resume <img src="/assets/images/download-icon.svg"></a>
-        </div>
+    <!-- Right Actions -->
+    <div class="site-header__actions">
+      <div class="cta-button site-header__resume">
+        <a (click)="downloadResume()">Resume <i class="fas fa-download"></i></a>
       </div>
+      <button 
+        class="theme-toggle" 
+        (click)="toggleTheme()" 
+        [attr.aria-label]="'Switch to ' + (currentTheme() === 'light' ? 'dark' : 'light') + ' mode'">
+        <i *ngIf="currentTheme() === 'light'" class="fas fa-moon"></i>
+        <i *ngIf="currentTheme() === 'dark'" class="fas fa-sun"></i>
+      </button>
     </div>
   </div>
+</header>
