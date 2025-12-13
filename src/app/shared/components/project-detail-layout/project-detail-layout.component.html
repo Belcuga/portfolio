@@ -66,6 +66,16 @@
     <div class="section-content overview-content" [innerHTML]="overview" appRevealOnScroll="fadeUp" [delay]="100"></div>
   </section>
 
+  <!-- Party Stats Section -->
+  <section class="content-section" *ngIf="partyStats && partyStats.length > 0">
+    <h2 class="section-heading" appRevealOnScroll="fadeUp">Party Stats (so far)</h2>
+    <div class="party-stats-grid">
+      <div class="party-stat-card" *ngFor="let stat of partyStats; let i = index" appRevealOnScroll="scaleIn" [staggerIndex]="i" [delay]="100">
+        <p class="party-stat-text">{{ stat.text }}</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Features Section -->
   <section class="content-section" *ngIf="features && features.length > 0">
     <h2 class="section-heading" appRevealOnScroll="fadeUp">Gameplay & Features</h2>
@@ -146,7 +156,7 @@
   <section class="content-section" *ngIf="roadmap && roadmap.length > 0">
     <h2 class="section-heading" appRevealOnScroll="fadeUp">What's Next</h2>
     <div class="roadmap-list">
-      <div class="roadmap-item" *ngFor="let item of roadmap; let i = index" [class.completed]="item.completed" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="100">
+      <div class="roadmap-item" *ngFor="let item of roadmap; let i = index" [class.completed]="item.completed" [class.highlighted]="item.highlighted" appRevealOnScroll="fadeUp" [staggerIndex]="i" [delay]="100">
         <span class="roadmap-checkbox">{{ item.completed ? '✓' : '○' }}</span>
         <span class="roadmap-text">{{ item.text }}</span>
       </div>

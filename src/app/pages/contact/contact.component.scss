@@ -1,60 +1,360 @@
 .contact-page {
   padding: 4rem 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   color: var(--text-primary);
-  text-align: center;
   transition: color 0.3s ease;
+  min-height: calc(100vh - 200px);
+  position: relative;
 
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+  }
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    gap: 2.5rem;
+  }
+}
+
+// Left Column: Content
+.contact-content {
   h1 {
     font-size: 2.8rem;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--text-primary);
+    line-height: 1.2;
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.875rem;
+    }
   }
 
-  .subtitle {
+  .contact-description {
     font-size: 1.125rem;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-weight: 400;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     line-height: 1.7;
-  }
 
-  .contact-info {
-    display: flex;
-    flex-direction: row;
-    justify-self: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+  }
+}
+
+// Badges/Chips Container
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.badge-chip {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow);
   }
 
   @media (max-width: 768px) {
+    font-size: 0.8125rem;
+    padding: 0.4375rem 0.875rem;
+  }
+}
 
-    .contact-info {
-      flex-direction: column;
-      align-items: center;
-    }
+.availability-info {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
 
+  @media (max-width: 768px) {
+    font-size: 0.8125rem;
+  }
+}
+
+// Right Column: Contact Card
+.contact-card-wrapper {
+  position: sticky;
+  top: 2rem;
+
+  @media (max-width: 968px) {
+    position: static;
+  }
+}
+
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px var(--shadow-hover);
+    border-color: var(--accent-color);
   }
 
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1.125rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+}
+
+.availability-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+
+  .badge-icon {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.8125rem;
+    padding: 0.5rem 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.email-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+}
+
+.email-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  word-break: break-all;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 0.9375rem;
+    text-align: center;
+  }
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: var(--accent-light);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  i {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  white-space: nowrap;
+  width: 100%;
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  i {
+    font-size: 1rem;
+  }
+
+  &.btn-primary {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
 
     &:hover {
-      color: var(--accent-color);
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
     }
 
-    i {
-      font-size: 1.2rem;
+    &:active {
+      transform: translateY(0);
     }
+  }
+
+  &.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+
+    &:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+}
+
+// Toast/Snackbar
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--shadow-hover);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideInUp 0.2s ease-out;
+
+  i {
+    color: var(--accent-color);
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    left: 1.5rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

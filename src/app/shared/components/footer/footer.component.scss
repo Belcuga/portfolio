@@ -30,6 +30,9 @@
   }
 
   @media (max-width: 768px) {
+    // Add bottom padding to account for fixed mobile navigation bar
+    padding-bottom: calc(2rem + 65px);
+    
     .footer-content {
       flex-direction: column;
       text-align: center;

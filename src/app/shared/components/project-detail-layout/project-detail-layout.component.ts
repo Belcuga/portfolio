@@ -40,6 +40,11 @@ export interface ProjectScreenshot {
 export interface ProjectRoadmapItem {
   text: string;
   completed?: boolean;
+  highlighted?: boolean;
+}
+
+export interface PartyStat {
+  text: string;
 }
 
 @Component({
@@ -60,6 +65,7 @@ export class ProjectDetailLayoutComponent {
   @Input() collaborationNote?: string;
   @Input() challenges?: string[];
   @Input() screenshots?: ProjectScreenshot[];
+  @Input() partyStats?: PartyStat[];
   @Input() roadmap?: ProjectRoadmapItem[];
   @Input() finalCta?: {
     text: string;

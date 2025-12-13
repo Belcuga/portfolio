@@ -1,22 +1,93 @@
 <div class="contact-page">
-  <h1 appRevealOnScroll="fadeUp">Contact</h1>
-  <p class="subtitle" appRevealOnScroll="fadeUp" [delay]="100">
-    I'm currently open to new opportunities. Feel free to reach out if you'd like to discuss a project or just want to
-    connect.
-  </p>
+  <div class="contact-container">
+    <!-- Left Column: Content -->
+    <div class="contact-content" appRevealOnScroll="fadeUp">
+      <h1>Contact</h1>
+      <p class="contact-description">
+        I'm currently open to new opportunities. Feel free to reach out if you'd like to discuss a project, a role, or just connect.
+      </p>
 
-  <div class="contact-info">
-    <a href="mailto:djordjevic.milan13@gmail.com" class="contact-link" appRevealOnScroll="fadeUp" [staggerIndex]="0">
-      <i class="fas fa-envelope"></i>
-      djordjevic.milan13&#64;gmail.com
-    </a>
-    <a href="https://www.linkedin.com/in/milandjordjevic00/" target="_blank" class="contact-link" appRevealOnScroll="fadeUp" [staggerIndex]="1">
-      <i class="fab fa-linkedin"></i>
-      LinkedIn
-    </a>
-    <a href="https://github.com/Belcuga" target="_blank" class="contact-link" appRevealOnScroll="fadeUp" [staggerIndex]="2">
-      <i class="fab fa-github"></i>
-      GitHub
-    </a>
+      <!-- Badges/Chips -->
+      <div class="badges-container">
+        @for (badge of badges; track badge) {
+          <span class="badge-chip" appRevealOnScroll="fadeUp" [delay]="$index * 50">{{ badge }}</span>
+        }
+      </div>
+
+      <!-- Availability Info -->
+      <p class="availability-info" appRevealOnScroll="fadeUp" [delay]="300">
+        Based in Serbia (CET) • Usually replies within 24h
+      </p>
+    </div>
+
+    <!-- Right Column: Contact Card -->
+    <div class="contact-card-wrapper" appRevealOnScroll="fadeUp" [delay]="100">
+      <div class="contact-card">
+        <!-- Availability Badge -->
+        <div class="availability-badge" appRevealOnScroll="fadeUp" [delay]="150">
+          <span class="badge-icon">✅</span>
+          <span>Open to opportunities / Remote</span>
+        </div>
+
+        <!-- Email Row -->
+        <div class="email-row" appRevealOnScroll="fadeUp" [delay]="200">
+          <span class="email-text">{{ email }}</span>
+          <button 
+            class="btn-copy" 
+            (click)="copyEmail()"
+            aria-label="Copy email address">
+            <i class="fas fa-copy"></i>
+            Copy
+          </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="contact-actions" appRevealOnScroll="fadeUp" [delay]="250">
+          <a 
+            [href]="getEmailLink()" 
+            class="btn btn-primary"
+            aria-label="Send email">
+            <i class="fas fa-envelope"></i>
+            Email me
+          </a>
+          
+          <a 
+            [href]="linkedInUrl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            aria-label="Visit LinkedIn profile">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+          </a>
+          
+          <a 
+            [href]="githubUrl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            aria-label="Visit GitHub profile">
+            <i class="fab fa-github"></i>
+            GitHub
+          </a>
+          
+          <button 
+            (click)="downloadResume()" 
+            class="btn btn-secondary"
+            aria-label="Download resume">
+            <i class="fas fa-download"></i>
+            Download CV
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Toast/Snackbar -->
+  @if (showToast()) {
+    <div class="toast" [@fadeInOut]>
+      <i class="fas fa-check-circle"></i>
+      Copied!
+    </div>
+  }
 </div>

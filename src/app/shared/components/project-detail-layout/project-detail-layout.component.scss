@@ -247,6 +247,45 @@
   }
 }
 
+// Party Stats Section
+.party-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .party-stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: all 0.25s ease;
+
+    &:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .party-stat-text {
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+  }
+}
+
 // Features Section
 .features-grid {
   display: grid;
@@ -454,6 +493,7 @@
       overflow: hidden;
       margin-bottom: 0.75rem;
       border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
       img {
         width: 100%;
@@ -508,6 +548,12 @@
 
     &.completed {
       opacity: 0.7;
+    }
+
+    &.highlighted {
+      border-color: var(--accent-color);
+      background: rgba(255, 107, 53, 0.05);
+      box-shadow: 0 2px 8px rgba(255, 107, 53, 0.15);
     }
 
     .roadmap-checkbox {
