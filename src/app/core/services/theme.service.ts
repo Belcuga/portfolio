@@ -7,15 +7,14 @@ export type Theme = 'light' | 'dark';
 })
 export class ThemeService {
   private readonly THEME_KEY = 'portfolio-theme';
-  currentTheme = signal<Theme>('light');
+  currentTheme = signal<Theme>('dark');
 
   constructor() {
-    // Load theme from localStorage or default to light
     const savedTheme = localStorage.getItem(this.THEME_KEY) as Theme;
     if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
       this.currentTheme.set(savedTheme);
     } else {
-      this.currentTheme.set('light');
+      this.currentTheme.set('dark');
     }
     this.applyTheme(this.currentTheme());
   }

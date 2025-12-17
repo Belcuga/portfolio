@@ -1,0 +1,39 @@
+<div 
+  class="reveal-overlay" 
+  *ngIf="shouldShow"
+  [class.phase-2]="phase2"
+  [class.hiding]="hiding"
+  aria-hidden="true"
+>
+  <svg 
+    class="logo-svg" 
+    viewBox="0 0 120 60" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      #logoPath
+      class="logo-path main-path"
+      d="M 8 52 
+         L 8 8 
+         L 24 32 
+         L 40 8 
+         L 40 52
+         M 56 8 
+         L 56 52 
+         L 72 52 
+         Q 96 52 96 30 
+         Q 96 8 72 8 
+         L 56 8"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      #accentPath
+      class="logo-path accent-path"
+      d="M 48 30 L 80 30"
+      fill="none"
+      stroke-linecap="round"
+    />
+  </svg>
+</div>

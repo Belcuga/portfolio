@@ -1,12 +1,11 @@
-    <app-splash-screen 
-      *ngIf="showSplash" 
-      (animationComplete)="onSplashComplete()">
-    </app-splash-screen>
-    <div *ngIf="!showSplash" class="main-content">
-      <app-header></app-header>
-      <main class="page-content">
-      <router-outlet></router-outlet>
-      </main>
-      <app-footer></app-footer>
-      <app-mobile-nav></app-mobile-nav>
-    </div>
+
+<app-open-reveal></app-open-reveal>
+
+<div class="main-content">
+  <app-header></app-header>
+  <main class="page-content">
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+  <app-mobile-nav></app-mobile-nav>
+</div>

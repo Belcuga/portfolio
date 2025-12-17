@@ -1,0 +1,93 @@
+:host {
+  --reveal-accent: #ff6b35;
+  --reveal-bg: #0a0a12;
+  
+  --draw-duration: 650ms;
+  --morph-duration: 250ms;
+  
+  --logo-size: 140px;
+  --stroke-width: 4;
+}
+
+.reveal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--reveal-bg);
+  will-change: opacity;
+  
+  &.phase-2 {
+    .logo-svg {
+      animation: logo-morph var(--morph-duration) ease-in forwards;
+    }
+    
+    .logo-path {
+      fill: var(--reveal-accent);
+      fill-opacity: 0.1;
+    }
+  }
+  
+  &.hiding {
+    opacity: 0;
+    transition: opacity 100ms ease-out;
+    pointer-events: none;
+  }
+}
+
+.logo-svg {
+  width: var(--logo-size);
+  height: auto;
+  will-change: transform, opacity;
+}
+
+.logo-path {
+  stroke: var(--reveal-accent);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  will-change: stroke-dashoffset, fill-opacity;
+  
+  &.draw {
+    animation: draw-stroke var(--draw-duration) cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+}
+
+.main-path {
+  &.draw {
+    animation-delay: 0ms;
+  }
+}
+
+.accent-path {
+  stroke-width: calc(var(--stroke-width) * 1.2);
+  
+  &.draw {
+    animation-delay: 200ms;
+    animation-duration: calc(var(--draw-duration) - 200ms);
+  }
+}
+
+@keyframes draw-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes logo-morph {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-overlay {
+    display: none !important;
+  }
+}
