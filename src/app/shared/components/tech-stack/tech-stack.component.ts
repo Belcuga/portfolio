@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 
 export interface TechItem {
@@ -11,7 +11,7 @@ export interface TechItem {
 @Component({
   selector: 'app-tech-stack',
   standalone: true,
-  imports: [CommonModule, RevealOnScrollDirective],
+  imports: [CommonModule, RevealOnScrollDirective, RouterModule],
   templateUrl: './tech-stack.component.html',
   styleUrls: ['./tech-stack.component.scss']
 })
